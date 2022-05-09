@@ -5,7 +5,12 @@ argo-cd:
     extraArgs:
       - --insecure
     config:
+      url: http://adamsogm.ml
       repositories: |
         - type: helm
           name: argo-cd
           url: https://argoproj.github.io/argo-helm
+    ingress:
+      enabled: true
+      hosts:
+        - adamsogm.ml
