@@ -13,5 +13,4 @@ argo-cd:
     ingress:
       enabled: true
       hosts: ["adamsogm.ml"]
-      spec:
-        ingressClassName: nginx
+      ingressClassName: nginx
