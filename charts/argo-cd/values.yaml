@@ -12,5 +12,4 @@ argo-cd:
           url: https://argoproj.github.io/argo-helm
     ingress:
       enabled: true
-      hosts:
-        - adamsogm.ml
+      hosts: ["adamsogm.ml"]
