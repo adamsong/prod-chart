@@ -15,7 +15,7 @@ argo-cd:
       hosts: ["argo.adamsogm.ml"]
       annotations:
         kubernetes.io/ingress.class: public
-        cert-manager.io/cluster-issuer: letsencrypt-staging
+        cert-manager.io/cluster-issuer: letsencrypt-production
       tls:
         - hosts:
             - argo.adamsogm.ml
