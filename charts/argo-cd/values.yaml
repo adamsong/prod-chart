@@ -12,7 +12,7 @@ argo-cd:
           url: https://argoproj.github.io/argo-helm
     ingress:
       enabled: true
-      hosts: ["adamsogm.ml"]
+      hosts: ["argo.adamsogm.ml"]
       annotations:
         cert-manager.io/cluster-issuer: letsencrypt
       tls:
