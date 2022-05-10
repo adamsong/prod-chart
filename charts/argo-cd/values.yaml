@@ -17,4 +17,4 @@ argo-cd:
         cert-manager.io/cluster-issuer: letsencrypt
       tls:
         - hosts:
-            - argocd.yogstation.net
+            - argocd.adamsogm.ml
