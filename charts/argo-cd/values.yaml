@@ -19,3 +19,4 @@ argo-cd:
       tls:
         - hosts:
             - argo.adamsogm.ml
+          secretName: argo-cd-tls
