@@ -14,7 +14,7 @@ argo-cd:
       enabled: true
       hosts: ["argo.adamsogm.ml"]
       annotations:
-        cert-manager.io/cluster-issuer: letsencrypt
+        cert-manager.io/cluster-issuer: letsencrypt-production
       tls:
         - hosts:
             - argo.adamsogm.ml
