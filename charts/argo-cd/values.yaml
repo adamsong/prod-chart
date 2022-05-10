@@ -5,7 +5,7 @@ argo-cd:
     extraArgs:
       - --insecure
     config:
-      url: http://adamsogm.ml
+      url: https://argocd.adamsogm.ml
       repositories: |
         - type: helm
           name: argo-cd
@@ -13,3 +13,8 @@ argo-cd:
     ingress:
       enabled: true
       hosts: ["adamsogm.ml"]
+      annotations:
+        cert-manager.io/cluster-issuer: letsencrypt
+      tls:
+        - hosts:
+            - argocd.yogstation.net
