@@ -66,6 +66,10 @@ argo-cd:
             value: "3.7.1"
           - name: KUBECTL_VERSION
             value: "1.22.0"
+          - name: YQ_VERSION
+            value: "4.18.1"
+          - name: JQ_VERSION
+            value: "1.6"
         args:
           - |
             mkdir -p /custom-tools/helm-plugins
