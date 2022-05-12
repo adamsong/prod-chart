@@ -11,6 +11,15 @@ argo-cd:
           name: argo-cd
           url: https://argoproj.github.io/argo-helm
       helm.valuesFileSchemes: secrets+age-import, https
+      # Management plugin taken from https://github.com/yogstation13-infrastructure/argocd/blob/7ecef6e37de94fc1ac568b369849e5bda111e539/values.yaml
+      configManagementPlugins: | 
+        - name: std-build
+          init:
+            command: ["/bin/sh", "-c"]
+            args: ["i=0; for url in $(cat Chart.yaml | /custom-tools/yq '.dependencies' -o=json | /custom-tools/jq -r .[].repository); do i=$((i+1)); helm repo add repository$ARGOCD_APP_NAME-$ARGOCD_APP_NAMESPACE${i} ${url}; done && helm dependency build"]
+          generate:
+            command: ["/bin/sh", "-c"]
+            args: ["helm template --release-name $ARGOCD_APP_NAME --namespace $ARGOCD_APP_NAMESPACE -f values.yaml -f secrets+age-import:///helm-secrets-private-keys/key.txt?secrets.yaml . > kustomization/inflated.yaml && kustomize build"]
     ingress:
       enabled: true
       hosts: ["argo.adamsogm.ml"]
@@ -65,6 +74,9 @@ argo-cd:
             wget -qO /custom-tools/sops https://github.com/mozilla/sops/releases/download/v${SOPS_VERSION}/sops-v${SOPS_VERSION}.linux
             wget -qO /custom-tools/kubectl https://dl.k8s.io/release/v${KUBECTL_VERSION}/bin/linux/amd64/kubectl
             wget -qO /custom-tools/curl https://github.com/moparisthebest/static-curl/releases/latest/download/curl-amd64 \
+
+            wget https://github.com/mikefarah/yq/releases/download/v${YQ_VERSION}/yq_linux_amd64 -O /custom-tools/yq
+            wget https://github.com/stedolan/jq/releases/download/jq-${JQ_VERSION}/jq-linux64 -O /custom-tools/jq
 
             chmod +x /custom-tools/*
         volumeMounts:
