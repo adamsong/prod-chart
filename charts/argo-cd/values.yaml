@@ -10,7 +10,6 @@ argo-cd:
         - type: helm
           name: argo-cd
           url: https://argoproj.github.io/argo-helm
-      helm.valuesFileSchemes: secrets+age-import, https
       # Management plugin taken from https://github.com/yogstation13-infrastructure/argocd/blob/7ecef6e37de94fc1ac568b369849e5bda111e539/values.yaml
       configManagementPlugins: | 
         - name: std-build
