@@ -14,8 +14,9 @@ spec:
     path: charts/argo-cd
     repoURL: https://github.com/adamsong/prod-chart.git
     targetRevision: HEAD
-    plugin:
-      name: std-build
+    helm:
+      valueFiles:
+        # - secrets+age-import:///helm-secrets-private-keys/key.txt?secrets.yaml
   syncPolicy:
     syncOptions:
       - CreateNamespace=true

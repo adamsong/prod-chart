@@ -10,15 +10,11 @@ argo-cd:
         - type: helm
           name: argo-cd
           url: https://argoproj.github.io/argo-helm
-      # Management plugin taken from https://github.com/yogstation13-infrastructure/argocd/blob/7ecef6e37de94fc1ac568b369849e5bda111e539/values.yaml
-      configManagementPlugins: | 
-        - name: std-build
-          init:
-            command: ["/bin/sh", "-c"]
-            args: ["i=0; for url in $(cat Chart.yaml | /custom-tools/yq '.dependencies' -o=json | /custom-tools/jq -r .[].repository); do i=$((i+1)); helm repo add repository$ARGOCD_APP_NAME-$ARGOCD_APP_NAMESPACE${i} ${url}; done && helm dependency build"]
-          generate:
-            command: ["/bin/sh", "-c"]
-            args: ["helm template --release-name $ARGOCD_APP_NAME --namespace $ARGOCD_APP_NAMESPACE -f values.yaml -f secrets+age-import:///helm-secrets-private-keys/key.txt?secrets.yaml . > kustomization/inflated.yaml && kustomize build"]
+      helm.valuesFileSchemes: >-
+        secrets+gpg-import, secrets+gpg-import-kubernetes,
+        secrets+age-import, secrets+age-import-kubernetes,
+        secrets,
+        https
     ingress:
       enabled: true
       hosts: ["argo.adamsogm.ml"]
