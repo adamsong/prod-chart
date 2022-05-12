@@ -38,13 +38,6 @@ argo-cd:
         value: /custom-tools/kubectl
       - name: HELM_SECRETS_CURL_PATH
         value: /custom-tools/curl
-      # https://github.com/jkroepke/helm-secrets/wiki/Security-in-shared-environments
-      - name: HELM_SECRETS_VALUES_ALLOW_SYMLINKS
-        value: "false"
-      - name: HELM_SECRETS_VALUES_ALLOW_ABSOLUTE_PATH
-        value: "false"
-      - name: HELM_SECRETS_VALUES_ALLOW_PATH_TRAVERSAL
-        value: "false"
     volumes:
       - name: custom-tools
         emptyDir: {}
