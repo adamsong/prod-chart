@@ -10,6 +10,11 @@ argo-cd:
         - type: helm
           name: argo-cd
           url: https://argoproj.github.io/argo-helm
+      helm.valuesFileSchemes: >-
+        secrets+gpg-import, secrets+gpg-import-kubernetes,
+        secrets+age-import, secrets+age-import-kubernetes,
+        secrets,
+        https
     ingress:
       enabled: true
       hosts: ["argo.adamsogm.ml"]
@@ -20,11 +25,6 @@ argo-cd:
         - hosts:
             - argo.adamsogm.ml
           secretName: argo-cd-tls
-    helm.valuesFileSchemes: >-
-      secrets+gpg-import, secrets+gpg-import-kubernetes,
-      secrets+age-import, secrets+age-import-kubernetes,
-      secrets,
-      https
   repoServer:
     env:
       - name: HELM_PLUGINS
