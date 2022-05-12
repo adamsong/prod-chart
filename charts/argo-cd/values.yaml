@@ -10,7 +10,7 @@ argo-cd:
         - type: helm
           name: argo-cd
           url: https://argoproj.github.io/argo-helm
-      helm.valuesFileSchemes: secrets+age-import, https
+      helmOptions.valuesFileSchemes: secrets+age-import, https
     ingress:
       enabled: true
       hosts: ["argo.adamsogm.ml"]
