@@ -12,7 +12,7 @@ spec:
     namespace: tekton-pipelines
   project: default
   source:
-    path: charts/argo-cd
+    path: charts/tekton-pipelines
     repoURL: https://github.com/adamsong/prod-chart.git
     targetRevision: HEAD
   syncPolicy:
