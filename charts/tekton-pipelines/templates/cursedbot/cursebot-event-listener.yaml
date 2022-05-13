@@ -7,5 +7,5 @@ spec:
   triggers:
   - name: pullrequest-build
     template:
-      name: cursedbot-build
+      name: cursedbot-build-tt
     bindings: []
