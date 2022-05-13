@@ -4,7 +4,7 @@ oauth2-proxy:
     whitelist-domain: admsogm.ml
     cookie-domain: adamsogm.ml
     redirect-url: https://auth.adamsogm.ml/oauth2/callback
-    github-repo: adamsogm/cursedbot
+    github-repo: adamsong/cursedbot
 
   ingress:
     enabled: true
