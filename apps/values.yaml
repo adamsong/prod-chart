@@ -4,3 +4,6 @@ apps:
   
   cursedbot:
     enabled: false
+  
+  oauthproxy:
+    enabled: true
