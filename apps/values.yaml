@@ -7,3 +7,6 @@ apps:
   
   oauthproxy:
     enabled: true
+
+  tekton:
+    enabled: true

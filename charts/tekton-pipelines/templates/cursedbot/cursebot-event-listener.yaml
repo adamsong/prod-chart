@@ -1,0 +1,11 @@
+apiVersion: triggers.tekton.dev/v1alpha1
+kind: EventListener
+metadata:
+  name: cursedbot
+spec:
+  serviceAccountName: trigger-account
+  triggers:
+  - name: pullrequest-build
+    template:
+      name: cursedbot-build
+    bindings: []

@@ -1,0 +1,29 @@
+apiVersion: triggers.tekton.dev/v1alpha1
+kind: TriggerTemplate
+metadata:
+  name: cursedbot-build
+spec:
+  resourcetemplates:
+  - apiVersion: tekton.dev/v1beta1
+    kind: PipelineRun
+    metadata:
+      generateName: cursedbot-build-
+      namespace: tekton-pipelines
+    spec:
+      serviceAccountName: pipeline
+      pipelineRef:
+        name: docker-build-pipeline
+      workspaces:
+        - name: source
+          emptyDir: {}
+        - name: ssh-directory
+          secret:
+            secretName: deploy-keys
+        - name: dockerconfig
+          secret:
+            secretName: docker-config
+      params:
+        - name: url
+          value: "git@github.com:adamsong/CursedBot-ts.git"
+        - name: image-name
+          value: "ghcr.io/adamsong/cursedbot-ts"

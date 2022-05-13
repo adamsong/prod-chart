@@ -1,0 +1,70 @@
+apiVersion: tekton.dev/v1beta1
+kind: Pipeline
+metadata:
+  name: docker-build-pipeline
+spec:
+  workspaces:
+    - name: source
+    - name: ssh-directory
+    - name: dockerconfig
+  params:
+    - name: url
+      description: Repository URL to clone from.
+      type: string
+    - name: revision
+      description: Commit revision to checkout.
+      type: string
+      default: master
+    - name: image-name
+      description: Name of the image to be pushed.
+      type: string
+  tasks:
+    - name: clone-repo
+      taskRef:
+        name: git-clone
+        kind: ClusterTask
+      workspaces:
+        - name: output
+          workspace: source
+        - name: ssh-directory
+          workspace: ssh-directory
+      params:
+        - name: url
+          value: "$(params.url)"
+        - name: revision
+          value: "$(params.revision)"
+
+    - name: build-image
+      taskRef:
+        name: kaniko
+        kind: ClusterTask
+      workspaces:
+        - name: source
+          workspace: source
+        - name: ssh-directory
+          workspace: ssh-directory
+        - name: dockerconfig
+          workspace: dockerconfig
+      params:
+        - name: IMAGE
+          value: "$(params.image-name)"
+      runAfter:
+        - clone-repo
+
+    - name: update-image
+      taskRef:
+        name: update-image
+        kind: ClusterTask
+      workspaces:
+        - name: source
+          workspace: source
+        - name: ssh-directory
+          workspace: ssh-directory
+      params:
+        - name: IMAGE_URL
+          value: "$(params.build-image.results.IMAGE_URL)"
+        - name: IMAGE_DIGEST
+          value: "$(params.build-image.results.IMAGE_DIGEST)"
+      runAfter:
+        - build-image
+        
