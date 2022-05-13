@@ -1,4 +1,4 @@
-{{- .Values.apps.argo-cd.enabled -}}
+{{- if .Values.apps.argo-cd.enabled -}}
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
