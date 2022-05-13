@@ -1,0 +1,6 @@
+apps:
+  argo-cd:
+    enabled: true
+  
+  cursedbot:
+    enabled: false
