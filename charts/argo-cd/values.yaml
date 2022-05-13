@@ -10,6 +10,9 @@ argo-cd:
         - type: helm
           name: argo-cd
           url: https://argoproj.github.io/argo-helm
+        - type: helm
+          name: oauth2-proxy
+          url: https://oauth2-proxy.github.io/manifests
       helm.valuesFileSchemes: >-
         secrets+gpg-import, secrets+gpg-import-kubernetes,
         secrets+age-import, secrets+age-import-kubernetes,
