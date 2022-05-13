@@ -11,3 +11,7 @@ oauth2-proxy:
     path: /
     hosts:
       - auth.adamsogm.ml
+    tls:
+      - hosts:
+          - auth.adamsogm.ml
+        secretName: auth-cd-tls
