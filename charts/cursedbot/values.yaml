@@ -1,0 +1,48 @@
+replicaCount: 1
+
+image:
+  repository: ghcr.io/adamsong/cursedbot-ts
+  pullPolicy: Always
+  # The hash (prefixes with SHA256:) of the image to use.
+  hash: ""
+
+imagePullSecrets: []
+nameOverride: ""
+fullnameOverride: ""
+
+podAnnotations: {}
+
+podSecurityContext: {}
+  # fsGroup: 2000
+
+securityContext: {}
+  # capabilities:
+  #   drop:
+  #   - ALL
+  # readOnlyRootFilesystem: true
+  # runAsNonRoot: true
+  # runAsUser: 1000
+
+service:
+  type: ClusterIP
+  port: 80
+
+ingress:
+  enabled: true
+  className: ""
+  annotations:
+    kubernetes.io/ingress.class: public
+    cert-manager.io/cluster-issuer: letsencrypt-production
+  host: cursedbot.adamsogm.ml
+  tls:
+   - secretName: cursedbot-cert
+     hosts:
+       - cursedbot.adamsogm.ml
+
+resources: {}
+
+nodeSelector: {}
+
+tolerations: []
+
+affinity: {}
