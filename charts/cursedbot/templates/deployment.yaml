@@ -39,15 +39,15 @@ spec:
             httpGet:
               path: /api/health
               port: http
-              initialDelaySeconds: 5
-              periodSeconds: 5
-              failureThreshold: 3
+            initialDelaySeconds: 5
+            periodSeconds: 5
+            failureThreshold: 3
           livenessProbe:
             httpGet:
               path: /api/health
               port: http
-              periodSeconds: 5
-              failureThreshold: 2
+            periodSeconds: 5
+            failureThreshold: 2
           resources: {{- toYaml .Values.resources | nindent 12 }}
           envFrom:
             - secretRef:
