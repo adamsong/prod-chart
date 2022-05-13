@@ -1,5 +1,5 @@
 apps:
-  argo-cd:
+  argocd:
     enabled: true
   
   cursedbot:
