@@ -1,8 +1,8 @@
 oauth2-proxy:
   extraArgs:
     provider: github
-    whitelist-domain: .admsogm.ml
-    cookie-domain: .adamsogm.ml
+    whitelist-domain: admsogm.ml
+    cookie-domain: adamsogm.ml
     redirect-url: https://auth.adamsogm.ml/oauth2/callback
     github-repo: adamsogm/cursedbot
 
