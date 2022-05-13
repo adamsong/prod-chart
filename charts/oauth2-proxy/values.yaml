@@ -11,6 +11,9 @@ oauth2-proxy:
     path: /
     hosts:
       - auth.adamsogm.ml
+    annotations:
+        kubernetes.io/ingress.class: public
+        cert-manager.io/cluster-issuer: letsencrypt-production
     tls:
       - hosts:
           - auth.adamsogm.ml
