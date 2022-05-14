@@ -19,7 +19,7 @@ spec:
         pathType: ImplementationSpecific
         backend:
           service:
-            name: {{ printf "el-%s" .Values.eventlistner.name }}
+            name: {{ printf "el-%s" .Values.eventlistener.name }}
             port:
               name: http-listener
 {{- end }}

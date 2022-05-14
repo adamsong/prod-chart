@@ -2,7 +2,7 @@
 apiVersion: triggers.tekton.dev/v1alpha1
 kind: EventListener
 metadata:
-  name: {{ .Values.eventlistner.name }}
+  name: {{ .Values.eventlistener.name }}
 spec:
   serviceAccountName: {{ .Values.serviceAccount.name }}
   triggers:
