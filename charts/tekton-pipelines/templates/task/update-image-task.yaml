@@ -71,5 +71,4 @@ spec:
         EOF
         git add $(params.image-yaml-path)
         git commit -m "Update build to $(params.IMAGE_DIGEST)"
-        git fetch
-        git push origin HEAD:master
+        GIT_SSH_COMMAND="ssh -i ~/.ssh/id_rsa" git push origin HEAD:master
