@@ -71,4 +71,4 @@ spec:
         EOF
         git add $(params.image-yaml-path)
         git commit -m "Update build to $(params.IMAGE_DIGEST)"
-        git push
+        git push origin HEAD:master
