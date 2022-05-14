@@ -7,4 +7,4 @@ spec:
   triggers:
   - name: pullrequest-build
     template:
-      ref: cursedbot-build-tt
+      ref: cursedbot-build
