@@ -21,4 +21,4 @@ spec:
           service:
             name: el-cursedbot
             port:
-              name: http
+              name: http-listener
