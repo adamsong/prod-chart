@@ -22,7 +22,6 @@ spec:
     - name: clone-repo
       taskRef:
         name: git-clone
-        kind: ClusterTask
       workspaces:
         - name: output
           workspace: source
@@ -37,7 +36,6 @@ spec:
     - name: build-image
       taskRef:
         name: kaniko
-        kind: ClusterTask
       workspaces:
         - name: source
           workspace: source
@@ -54,7 +52,6 @@ spec:
     - name: update-image
       taskRef:
         name: update-image
-        kind: ClusterTask
       workspaces:
         - name: source
           workspace: source
