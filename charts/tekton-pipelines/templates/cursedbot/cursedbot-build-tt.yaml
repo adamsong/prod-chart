@@ -9,7 +9,7 @@ spec:
     metadata:
       generateName: cursedbot-build-
     spec:
-      serviceAccountName: pipeline
+      serviceAccountName: trigger-account
       pipelineRef:
         name: docker-build-pipeline
       workspaces:
