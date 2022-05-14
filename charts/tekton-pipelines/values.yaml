@@ -1,0 +1,9 @@
+cursedbot:
+  enabled: true
+
+eventlistener:
+  enabled: true
+  name: pipeline-eventlistener
+
+serviceAccount:
+  name: trigger-account

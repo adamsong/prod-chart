@@ -1,3 +1,4 @@
+{{- if .Values.cursedbot.secrets }}
 apiVersion: triggers.tekton.dev/v1alpha1
 kind: TriggerTemplate
 metadata:
@@ -31,3 +32,4 @@ spec:
           value: "https://adamsong@github.com/adamsong/prod-chart.git"
         - name: infra-path
           value: "charts/cursedbot/image.yaml"
+{{- end }}

@@ -1,0 +1,32 @@
+{{- if .Values.eventlistener.enabled }}
+apiVersion: triggers.tekton.dev/v1alpha1
+kind: EventListener
+metadata:
+  name: {{ .Values.eventlistner.name }}
+spec:
+  serviceAccountName: {{ .Values.serviceAccount.name }}
+  triggers:
+{{- if .Values.cursedbot.enabled }}
+  - name: cursedbot-build
+    template:
+      ref: cursedbot-build
+    interceptors:
+      - name: "Validate github webhook"
+        ref:
+          name: "github"
+        params:
+        - name: "secretRef"
+          value: 
+            secretName: "cursedbot-secret"
+            secretKey: "token"
+        - name: "eventTypes"
+          value: ["push"] 
+      - name: "Validate branch and repo"
+        ref:
+          name: "cel"
+        params:
+        - name: "filter"
+          value: "body.ref == refs/heads/master && body.repository.full_name == adamsong/CursedBot-ts"
+        
+{{- end }}
+{{- end }}
