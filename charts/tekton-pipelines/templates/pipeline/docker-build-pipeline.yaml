@@ -36,8 +36,6 @@ spec:
       workspaces:
         - name: output
           workspace: source
-        - name: ssh-directory
-          workspace: ssh-directory
       params:
         - name: url
           value: "$(params.url)"
@@ -74,7 +72,6 @@ spec:
       runAfter:
         - "build-image"
         
-
     - name: update-image
       taskRef:
         name: update-image

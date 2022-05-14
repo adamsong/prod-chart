@@ -29,7 +29,7 @@ spec:
             secretName: docker-config
       params:
         - name: url
-          value: "git@github.com:adamsong/CursedBot-ts.git"
+          value: "https://github.com/adamsong/CursedBot-ts.git"
         - name: image-name
           value: "ghcr.io/adamsong/cursedbot-ts"
         - name: infra-url
