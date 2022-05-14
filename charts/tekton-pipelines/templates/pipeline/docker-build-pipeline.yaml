@@ -87,9 +87,9 @@ spec:
           workspace: ssh-directory
       params:
         - name: IMAGE_URL
-          value: "$(params.build-image.results.IMAGE_URL)"
+          value: "$(tasks.build-image.results.IMAGE_URL)"
         - name: IMAGE_DIGEST
-          value: "$(params.build-image.results.IMAGE_DIGEST)"
+          value: "$(tasks.build-image.results.IMAGE_DIGEST)"
         - name: image-yaml-path
           value: "$(params.infra-path)"
       runAfter:
