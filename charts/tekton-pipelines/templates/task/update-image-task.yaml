@@ -52,7 +52,7 @@ spec:
       - name: WORKSPACE_SSH_DIRECTORY_PATH
         value: $(workspaces.ssh-directory.path)
       script: |
-        set -e
+        set -e -x
 
         if [ "${WORKSPACE_SSH_DIRECTORY_BOUND}" = "true" ] ; then
           cp -R "${WORKSPACE_SSH_DIRECTORY_PATH}" "${HOME}"/.ssh
