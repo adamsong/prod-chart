@@ -15,6 +15,17 @@ spec:
       description: Commit revision to checkout.
       type: string
       default: master
+    - name: infra-url
+      description: Repository URL to clone from.
+      type: string
+    - name: infra-revision
+      description: Commit revision to checkout.
+      type: string
+      default: master
+    - name: infra-path
+      description: Path to the image.yaml file.
+      type: string
+      default: image.yaml
     - name: image-name
       description: Name of the image to be pushed.
       type: string
@@ -49,6 +60,20 @@ spec:
       runAfter:
         - "clone-repo"
 
+    - name: clone-repo
+      taskRef:
+        name: git-clone
+      workspaces:
+        - name: output
+          workspace: source
+        - name: ssh-directory
+          workspace: ssh-directory
+      params:
+        - name: url
+          value: "$(params.infra_url)"
+        - name: revision
+          value: "$(params.infra_revision)"
+
     - name: update-image
       taskRef:
         name: update-image
@@ -62,6 +87,8 @@ spec:
           value: "$(params.build-image.results.IMAGE_URL)"
         - name: IMAGE_DIGEST
           value: "$(params.build-image.results.IMAGE_DIGEST)"
+        - name: image-yaml-path
+          value: "$(params.infra_path)"
       runAfter:
         - "build-image"
         
