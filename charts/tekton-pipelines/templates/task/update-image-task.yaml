@@ -33,13 +33,7 @@ spec:
   workspaces:
     - name: source
       description: Holds the git source.
-    - name: ssh-directory
-      optional: true
-      description: |
-        A .ssh directory with private key, known_hosts, config, etc. Copied to
-        the user's home before git commands are executed. Used to authenticate
-        with the git remote when performing the clone. Binding a Secret to this
-        Workspace is strongly recommended over other volume types.
+    - name: auth-directory
   steps:
     - name: render-yaml-and-commit
       workingDir: $(workspaces.source.path)
@@ -47,18 +41,8 @@ spec:
       env:
       - name: HOME
         value: "$(params.userHome)"
-      - name: WORKSPACE_SSH_DIRECTORY_BOUND
-        value: $(workspaces.ssh-directory.bound)
-      - name: WORKSPACE_SSH_DIRECTORY_PATH
-        value: $(workspaces.ssh-directory.path)
       script: |
         set -e -x
-
-        if [ "${WORKSPACE_SSH_DIRECTORY_BOUND}" = "true" ] ; then
-          cp -R "${WORKSPACE_SSH_DIRECTORY_PATH}" "${HOME}"/.ssh
-          chmod 700 "${HOME}"/.ssh
-          chmod -R 400 "${HOME}"/.ssh/*
-        fi
 
         git config --global user.email "<>"
         git config --global user.name "Tekton Build Tool"
@@ -71,5 +55,5 @@ spec:
         EOF
         git add $(params.image-yaml-path)
         git commit -m "Update build to $(params.IMAGE_DIGEST)"
-        head ~/.ssh/id_rsa -L 2
-        GIT_SSH_COMMAND="ssh -i ~/.ssh/id_rsa" git push origin HEAD:master
+        chmod +x $(params.auth-directory.path)/auth_helper.sh
+        GIT_ASKPASS=$(params.auth-directory.path)/auth_helper.sh git push origin HEAD:master

@@ -16,9 +16,9 @@ spec:
         - name: source
           persistentVolumeClaim:
             claimName: workspace-pvc
-        - name: ssh-directory
+        - name: auth-directory
           secret:
-            secretName: deploy-keys
+            secretName: git-password
         - name: dockerconfig
           secret:
             secretName: docker-config
@@ -28,6 +28,6 @@ spec:
         - name: image-name
           value: "ghcr.io/adamsong/cursedbot-ts"
         - name: infra-url
-          value: "git@github.com:adamsong/prod-chart.git"
+          value: "https://adamsong@github.com/adamsong/prod-chart.git"
         - name: infra-path
           value: "charts/cursedbot/image.yaml"

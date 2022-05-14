@@ -5,7 +5,7 @@ metadata:
 spec:
   workspaces:
     - name: source
-    - name: ssh-directory
+    - name: auth-directory
     - name: dockerconfig
   params:
     - name: url
@@ -62,8 +62,6 @@ spec:
       workspaces:
         - name: output
           workspace: source
-        - name: ssh-directory
-          workspace: ssh-directory
       params:
         - name: url
           value: "$(params.infra-url)"
@@ -78,8 +76,8 @@ spec:
       workspaces:
         - name: source
           workspace: source
-        - name: ssh-directory
-          workspace: ssh-directory
+        - name: auth-directory
+          workspace: auth-directory
       params:
         - name: IMAGE_URL
           value: "$(tasks.build-image.results.IMAGE_URL)"
