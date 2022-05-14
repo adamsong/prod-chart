@@ -6,6 +6,7 @@ metadata:
     {{- include "cursedbot.labels" . | nindent 4 }}
 spec:
   replicas: {{ .Values.replicaCount }}
+  revisionHistoryLimit: 2
   selector:
     matchLabels:
       {{- include "cursedbot.selectorLabels" . | nindent 6 }}
