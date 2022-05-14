@@ -8,4 +8,3 @@ spec:
   - name: pullrequest-build
     template:
       ref: cursedbot-build-tt
-    bindings: []
