@@ -14,13 +14,8 @@ spec:
         name: docker-build-pipeline
       workspaces:
         - name: source
-          volumeClaimTemplate:
-            spec:
-              accessModes:
-                - ReadWriteMany
-              resources:
-                requests:
-                  storage: 1Gi
+          persistentVolumeClaim:
+            claimName: workspace-pvc
         - name: ssh-directory
           secret:
             secretName: deploy-keys
