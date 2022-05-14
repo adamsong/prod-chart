@@ -24,7 +24,7 @@ spec:
       default: Dockerfile
     - name: CONTEXT
       description: The build context used by Kaniko.
-      default: /workspace/source
+      default: ""
     - name: EXTRA_ARGS
       type: array
       default: []
