@@ -57,5 +57,5 @@ spec:
         git commit -m "Update build to $(params.IMAGE_DIGEST)"
         cp $(workspaces.auth-directory.path)/auth_helper.sh .
         chmod +x auth_helper.sh
-        GIT_ASKPASS=auth_helper.sh git push origin HEAD:master
+        GIT_ASKPASS=./auth_helper.sh git push origin HEAD:master
         rm auth_helper.sh
