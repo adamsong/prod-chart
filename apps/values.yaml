@@ -3,7 +3,7 @@ apps:
     enabled: true
   
   cursedbot:
-    enabled: false
+    enabled: true
   
   oauthproxy:
     enabled: true
