@@ -55,5 +55,5 @@ spec:
         EOF
         git add $(params.image-yaml-path)
         git commit -m "Update build to $(params.IMAGE_DIGEST)"
-        chmod +x $(params.auth-directory.path)/auth_helper.sh
-        GIT_ASKPASS=$(params.auth-directory.path)/auth_helper.sh git push origin HEAD:master
+        chmod +x $(workspaces.auth-directory.path)/auth_helper.sh
+        GIT_ASKPASS=$(workspaces.auth-directory.path)/auth_helper.sh git push origin HEAD:master
