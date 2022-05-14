@@ -60,7 +60,7 @@ spec:
       runAfter:
         - "clone-repo"
 
-    - name: clone-repo
+    - name: clone-infra-repo
       taskRef:
         name: git-clone
       workspaces:
@@ -70,9 +70,12 @@ spec:
           workspace: ssh-directory
       params:
         - name: url
-          value: "$(params.infra_url)"
+          value: "$(params.infra-url)"
         - name: revision
-          value: "$(params.infra_revision)"
+          value: "$(params.infra-revision)"
+        runAfter:
+          - "build-image"
+        
 
     - name: update-image
       taskRef:
@@ -88,7 +91,7 @@ spec:
         - name: IMAGE_DIGEST
           value: "$(params.build-image.results.IMAGE_DIGEST)"
         - name: image-yaml-path
-          value: "$(params.infra_path)"
+          value: "$(params.infra-path)"
       runAfter:
-        - "build-image"
+        - "clone-infra-repo"
         
