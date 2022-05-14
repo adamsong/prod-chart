@@ -44,14 +44,6 @@ spec:
     - name: IMAGE_URL
       description: URL of the image just built.
   steps:
-    - name: logging
-      image: alpine
-      script: |
-        #!/bin/sh
-        set -x -e
-        cd $(workspaces.source.path)/$(params.CONTEXT)
-        ls
-        cat $(params.DOCKERFILE)
     - name: build-and-push
       workingDir: $(workspaces.source.path)
       image: $(params.BUILDER_IMAGE)
