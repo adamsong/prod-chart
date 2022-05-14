@@ -47,7 +47,7 @@ spec:
         - name: IMAGE
           value: "$(params.image-name)"
       runAfter:
-        - clone-repo
+        - "clone-repo"
 
     - name: update-image
       taskRef:
@@ -63,5 +63,5 @@ spec:
         - name: IMAGE_DIGEST
           value: "$(params.build-image.results.IMAGE_DIGEST)"
       runAfter:
-        - build-image
+        - "build-image"
         
