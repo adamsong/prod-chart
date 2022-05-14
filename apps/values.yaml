@@ -9,4 +9,4 @@ apps:
     enabled: true
 
   tekton:
-    enabled: false
+    enabled: true

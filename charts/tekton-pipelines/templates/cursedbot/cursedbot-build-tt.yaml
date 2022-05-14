@@ -27,3 +27,7 @@ spec:
           value: "git@github.com:adamsong/CursedBot-ts.git"
         - name: image-name
           value: "ghcr.io/adamsong/cursedbot-ts"
+        - name: infra-url
+          value: "git@github.com:adamsong/prod-chart.git"
+        - name: infra-path
+          value: "charts/cursedbot/image.yaml"
