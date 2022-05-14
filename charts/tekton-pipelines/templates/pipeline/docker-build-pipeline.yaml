@@ -50,8 +50,6 @@ spec:
       workspaces:
         - name: source
           workspace: source
-        - name: ssh-directory
-          workspace: ssh-directory
         - name: dockerconfig
           workspace: dockerconfig
       params:
