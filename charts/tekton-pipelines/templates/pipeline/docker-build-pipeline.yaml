@@ -73,8 +73,8 @@ spec:
           value: "$(params.infra-url)"
         - name: revision
           value: "$(params.infra-revision)"
-        runAfter:
-          - "build-image"
+      runAfter:
+        - "build-image"
         
 
     - name: update-image
