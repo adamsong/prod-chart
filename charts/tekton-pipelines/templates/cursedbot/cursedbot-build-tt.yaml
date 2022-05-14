@@ -8,7 +8,6 @@ spec:
     kind: PipelineRun
     metadata:
       generateName: cursedbot-build-
-      namespace: tekton-pipelines
     spec:
       serviceAccountName: pipeline
       pipelineRef:
