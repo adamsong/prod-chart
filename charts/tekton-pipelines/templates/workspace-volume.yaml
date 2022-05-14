@@ -12,3 +12,11 @@ spec:
   storageClassName: local-storage
   local:
     path: /persistence-mount/tekton-workspace
+  nodeAffinity:
+    required:
+      nodeSelectorTerms:
+      - matchExpressions:
+        - key: kubernetes.io/hostname
+          operator: In
+          values:
+          - vps-b63c90af
