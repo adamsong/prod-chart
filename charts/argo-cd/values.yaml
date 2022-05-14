@@ -18,6 +18,14 @@ argo-cd:
         secrets+age-import, secrets+age-import-kubernetes,
         secrets,
         https
+      resource.exclusions: |
+        - apiGroups:
+          - "*"
+          kinds:
+          - "PipelineRun"
+          - "TaskRun"
+          clusters:
+          - "*"
     ingress:
       enabled: true
       hosts: ["argo.adamsogm.ml"]
