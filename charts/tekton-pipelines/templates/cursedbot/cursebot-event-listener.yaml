@@ -5,6 +5,6 @@ metadata:
 spec:
   serviceAccountName: trigger-account
   triggers:
-  - name: pullrequest-build
+  - name: cursedbot-build
     template:
       ref: cursedbot-build
