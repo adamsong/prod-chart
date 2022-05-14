@@ -26,7 +26,7 @@ spec:
           name: "cel"
         params:
         - name: "filter"
-          value: "body.ref == refs/heads/master && body.repository.full_name == adamsong/CursedBot-ts"
+          value: "body.ref == 'refs/heads/master' && body.repository.full_name == 'adamsong/CursedBot-ts'"
         
 {{- end }}
 {{- end }}
