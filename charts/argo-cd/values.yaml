@@ -16,6 +16,9 @@ argo-cd:
         - type: helm
           name: bitnami
           url: https://charts.bitnami.com/bitnami
+        - type: helm
+          name: itzg
+          url: https://itzg.github.io/minecraft-server-charts/
       helm.valuesFileSchemes: >-
         secrets+gpg-import, secrets+gpg-import-kubernetes,
         secrets+age-import, secrets+age-import-kubernetes,

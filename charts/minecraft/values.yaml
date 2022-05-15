@@ -1,0 +1,5 @@
+minecraft:
+  minecraftServer:
+    eula: "TRUE"
+    ops: adamsong
+    serviceType: LoadBalancer

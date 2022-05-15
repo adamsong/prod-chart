@@ -13,3 +13,6 @@ apps:
 
   mysql:
     enabled: true
+
+  minecraft:
+    enabled: false
