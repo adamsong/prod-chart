@@ -52,7 +52,7 @@ spec:
           envFrom:
             - secretRef:
                 name: {{ include "cursedbot.fullname" . }}
-            - configRef:
+            - configMapRef:
                 name: {{ include "cursedbot.fullname" . }}
       {{- with .Values.nodeSelector }}
       nodeSelector:
