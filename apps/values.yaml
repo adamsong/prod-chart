@@ -10,3 +10,6 @@ apps:
 
   tekton:
     enabled: true
+
+  mysql:
+    enabled: true

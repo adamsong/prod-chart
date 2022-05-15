@@ -13,6 +13,9 @@ argo-cd:
         - type: helm
           name: oauth2-proxy
           url: https://oauth2-proxy.github.io/manifests
+        - type: helm
+          name: bitnami
+          url: https://charts.bitnami.com/bitnami
       helm.valuesFileSchemes: >-
         secrets+gpg-import, secrets+gpg-import-kubernetes,
         secrets+age-import, secrets+age-import-kubernetes,

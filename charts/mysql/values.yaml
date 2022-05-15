@@ -1,0 +1,6 @@
+mysql:
+  primary:
+    persistance:
+      existingClaim: mysql-pv-claim
+  secondary:
+    replicaCount: 0
