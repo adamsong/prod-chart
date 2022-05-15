@@ -12,4 +12,4 @@ apps:
     enabled: true
 
   mysql:
-    enabled: true
+    enabled: false
