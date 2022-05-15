@@ -52,6 +52,8 @@ spec:
           envFrom:
             - secretRef:
                 name: {{ include "cursedbot.fullname" . }}
+            - configRef:
+                name: {{ include "cursedbot.fullname" . }}
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}

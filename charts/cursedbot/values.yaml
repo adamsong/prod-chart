@@ -55,3 +55,8 @@ nodeSelector: {}
 tolerations: []
 
 affinity: {}
+
+config:
+  DB_HOST: mysql.mysql
+  DB_PORT: 3306
+  DB_DATABASE: cursedbot
