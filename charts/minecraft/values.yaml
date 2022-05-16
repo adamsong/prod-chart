@@ -5,3 +5,20 @@ minecraft:
     eula: "TRUE"
     ops: adamsong
     serviceType: LoadBalancer
+    type: "CURSEFORGE"
+    cfServerMod: "/modpacks/Cuboid-Outpost-1.1.2-Server-Files.zip"
+  
+  persistence:
+    dataDir:
+      enabled: true
+      Size: 10Gi
+      existingClaim: cuboid-pv-claim
+  
+  extraVolumes:
+    - volumeMounts:
+      - name: zips
+        mountPath: /modpacks
+    - volumes:
+      - name: zips
+        persistanceVolumeClaim:
+          claimName: zip-pv-claim
