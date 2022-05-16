@@ -15,4 +15,4 @@ apps:
     enabled: true
 
   minecraft:
-    enabled: true
+    enabled: false
