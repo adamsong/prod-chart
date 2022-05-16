@@ -12,6 +12,7 @@ minecraft:
     cfServerMod: "/modpacks/Cuboid-Outpost-1.1.2-Server-Files.zip"
     version: "1.16.5"
     forgeVersion: "36.2.26"
+    pvp: 'true'
   
   persistence:
     dataDir:
