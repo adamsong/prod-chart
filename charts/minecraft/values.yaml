@@ -30,5 +30,5 @@ minecraft:
           claimName: zip-pv-claim
   
   extraEnv:
-    - CF_BASE_DIR: "/data"
-    - USE_MODPACK_START_SCRIPT: "false"
+    CF_BASE_DIR: "/data"
+    USE_MODPACK_START_SCRIPT: "false"
