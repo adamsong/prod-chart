@@ -7,6 +7,8 @@ minecraft:
     serviceType: LoadBalancer
     type: "CURSEFORGE"
     cfServerMod: "/modpacks/Cuboid-Outpost-1.1.2-Server-Files.zip"
+    version: "1.16.5"
+    forgeVersion: "36.2.26"
   
   persistence:
     dataDir:
