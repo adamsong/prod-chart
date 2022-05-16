@@ -4,6 +4,9 @@ minecraft:
   image:
     tag: java8
 
+  livenessProbe:
+    initialDelaySeconds: 6000
+
   minecraftServer:
     eula: "TRUE"
     ops: adamsong
@@ -13,6 +16,7 @@ minecraft:
     version: "1.16.5"
     forgeVersion: "36.2.26"
     pvp: 'true'
+    memory: "4G"
   
   persistence:
     dataDir:
