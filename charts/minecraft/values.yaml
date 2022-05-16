@@ -20,5 +20,5 @@ minecraft:
         mountPath: /modpacks
     - volumes:
       - name: zips
-        persistanceVolumeClaim:
+        persistenceVolumeClaim:
           claimName: zip-pv-claim
