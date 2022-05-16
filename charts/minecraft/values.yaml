@@ -5,7 +5,7 @@ minecraft:
     eula: "TRUE"
     ops: adamsong
     serviceType: LoadBalancer
-    type: "CURSEFORGE"
+    type: "FORGE"
     cfServerMod: "/modpacks/Cuboid-Outpost-1.1.2-Server-Files.zip"
     version: "1.16.5"
     forgeVersion: "36.2.26"
@@ -24,3 +24,6 @@ minecraft:
       - name: zips
         persistentVolumeClaim:
           claimName: zip-pv-claim
+  
+  extraEnv:
+    - CF_BASE_DIR: "/data"
