@@ -31,4 +31,4 @@ minecraft:
   
   extraEnv:
     - CF_BASE_DIR: "/data"
-    - USE_MODPACK_START_SCRIPT: false
+    - USE_MODPACK_START_SCRIPT: "false"
