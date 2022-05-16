@@ -12,8 +12,6 @@ spec:
   storageClassName: local-storage
   local:
     path: /persistence-mount/mc-zips
-  claimRef:
-    name: zip-pv-claim
   nodeAffinity:
     required:
       nodeSelectorTerms:
