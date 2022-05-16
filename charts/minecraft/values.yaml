@@ -1,3 +1,5 @@
+#https://github.com/itzg/docker-minecraft-server
+#https://github.com/itzg/minecraft-server-charts/blob/master/charts/minecraft/values.yaml
 minecraft:
   minecraftServer:
     eula: "TRUE"
