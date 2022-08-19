@@ -21,7 +21,7 @@ metadata:
   namespace: proxy
 subsets:
   - addresses:
-      - ip: localhost
+      - ip: 127.0.0.1
     ports:
       - name: app
         port: 8080
