@@ -1,0 +1,48 @@
+{{- if .Values.apps.argocd.enabled -}}
+kind: Service
+apiVersion: v1
+metadata:
+  name: external-ip
+  namespace: proxy
+spec:
+  ports:
+    - name: app
+      protocol: TCP
+      port: 80
+      targetPort: 8080
+  clusterIP: None
+  type: ClusterIP
+  sessionAffinity: None
+---
+kind: Endpoints
+apiVersion: v1
+metadata:
+  name: external-ip
+  namespace: proxy
+subsets:
+  - addresses:
+      - ip: localhost
+    ports:
+      - name: app
+        port: 8080
+        protocol: TCP
+---
+kind: Ingress
+apiVersion: extensions/v1beta1
+metadata:
+  name: external-service
+  namespace: proxy
+spec:
+  tls:
+    - hosts:
+        - proxy.adamsogm.ml
+      secretName: proxy-tls
+  rules:
+    - host: proxy.adamsogm.ml
+      http:
+        paths:
+          - path: /
+            backend:
+              serviceName: external-ip
+              servicePort: 80 
+{{- end }}

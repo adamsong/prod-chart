@@ -16,3 +16,6 @@ apps:
 
   minecraft:
     enabled: false
+
+  proxy:
+    enabled: true
