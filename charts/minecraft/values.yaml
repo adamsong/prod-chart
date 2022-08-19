@@ -1,7 +1,38 @@
 #https://github.com/itzg/docker-minecraft-server
 #https://github.com/itzg/minecraft-server-charts/blob/master/charts/minecraft/values.yaml
 minecraft:
+  image:
+    tag: java8
+
+  livenessProbe:
+    initialDelaySeconds: 6000
+
   minecraftServer:
     eula: "TRUE"
     ops: adamsong
     serviceType: LoadBalancer
+    type: "CURSEFORGE"
+    cfServerMod: "/modpacks/Cuboid-Outpost-1.1.2-Server-Files.zip"
+    version: "1.16.5"
+    forgeVersion: "36.2.26"
+    pvp: 'true'
+    memory: "4G"
+  
+  persistence:
+    dataDir:
+      enabled: true
+      Size: 10Gi
+      existingClaim: cuboid-pv-claim
+  
+  extraVolumes:
+    - volumeMounts:
+      - name: zips
+        mountPath: /modpacks
+    - volumes:
+      - name: zips
+        persistentVolumeClaim:
+          claimName: zip-pv-claim
+  
+  extraEnv:
+    CF_BASE_DIR: "/data"
+    USE_MODPACK_START_SCRIPT: "false"

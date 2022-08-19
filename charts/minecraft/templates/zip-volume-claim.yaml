@@ -1,0 +1,12 @@
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: zip-pv-claim
+spec:
+  accessModes:
+  - ReadWriteOnce
+  storageClassName: local-storage
+  volumeName: zip-pv
+  resources:
+    requests:
+      storage: 10Gi
