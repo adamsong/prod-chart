@@ -32,6 +32,9 @@ apiVersion: extensions/v1beta1
 metadata:
   name: external-service
   namespace: proxy
+  annotations:
+    kubernetes.io/ingress.class: public
+    cert-manager.io/cluster-issuer: letsencrypt-production
 spec:
   tls:
     - hosts:
