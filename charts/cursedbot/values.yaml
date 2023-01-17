@@ -42,11 +42,11 @@ ingress:
   annotations:
     kubernetes.io/ingress.class: public
     cert-manager.io/cluster-issuer: letsencrypt-production
-  host: cursedbot.adamsogm.ml
+  host: cursedbot.adamsogm.us
   tls:
    - secretName: cursedbot-cert
      hosts:
-       - cursedbot.adamsogm.ml
+       - cursedbot.adamsogm.us
 
 resources: {}
 

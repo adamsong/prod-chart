@@ -38,10 +38,10 @@ metadata:
 spec:
   tls:
     - hosts:
-        - proxy.adamsogm.ml
+        - proxy.adamsogm.us
       secretName: proxy-tls
   rules:
-    - host: proxy.adamsogm.ml
+    - host: proxy.adamsogm.us
       http:
         paths:
           - path: /

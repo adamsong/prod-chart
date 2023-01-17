@@ -5,7 +5,7 @@ argo-cd:
     extraArgs:
       - --insecure
     config:
-      url: https://argo.adamsogm.ml
+      url: https://argo.adamsogm.us
       repositories: |
         - type: helm
           name: argo-cd
@@ -34,13 +34,13 @@ argo-cd:
           - "*"
     ingress:
       enabled: true
-      hosts: ["argo.adamsogm.ml"]
+      hosts: ["argo.adamsogm.us"]
       annotations:
         kubernetes.io/ingress.class: public
         cert-manager.io/cluster-issuer: letsencrypt-production
       tls:
         - hosts:
-            - argo.adamsogm.ml
+            - argo.adamsogm.us
           secretName: argo-cd-tls
   repoServer:
     env:

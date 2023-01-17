@@ -9,10 +9,10 @@ metadata:
 spec:
   tls:
     - hosts:
-        - tekton.adamsogm.ml
+        - tekton.adamsogm.us
       secretName: tekton-cert
   rules:
-  - host: tekton.adamsogm.ml
+  - host: tekton.adamsogm.us
     http:
       paths:
       - path: /webhook

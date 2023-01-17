@@ -2,19 +2,19 @@ oauth2-proxy:
   extraArgs:
     provider: github
     whitelist-domain: admsogm.ml
-    cookie-domain: adamsogm.ml
-    redirect-url: https://auth.adamsogm.ml/oauth2/callback
+    cookie-domain: adamsogm.us
+    redirect-url: https://auth.adamsogm.us/oauth2/callback
     github-user: adamsong
 
   ingress:
     enabled: true
     path: /
     hosts:
-      - auth.adamsogm.ml
+      - auth.adamsogm.us
     annotations:
         kubernetes.io/ingress.class: public
         cert-manager.io/cluster-issuer: letsencrypt-production
     tls:
       - hosts:
-          - auth.adamsogm.ml
+          - auth.adamsogm.us
         secretName: auth-cd-tls
