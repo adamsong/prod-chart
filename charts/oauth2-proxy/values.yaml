@@ -1,7 +1,7 @@
 oauth2-proxy:
   extraArgs:
     provider: github
-    whitelist-domain: admsogm.ml
+    whitelist-domain: admsogm.us
     cookie-domain: adamsogm.us
     redirect-url: https://auth.adamsogm.us/oauth2/callback
     github-user: adamsong
