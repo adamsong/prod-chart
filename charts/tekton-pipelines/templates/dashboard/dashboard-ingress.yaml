@@ -4,8 +4,9 @@ metadata:
   name: dashboard-ingress
   annotations:
     kubernetes.io/ingress.class: public
-    cert-manager.io/cluster-issuer: letsencrypt-productionnginx.ingress.kubernetes.io/auth-url: "http://oauth2-proxy.tools.svc.cluster.local/oauth2/auth"
-    nginx.ingress.kubernetes.io/auth-signin: "http://auth.adamsogm.ml/oauth2/sign_in?rd=http://$host$request_uri"
+    cert-manager.io/cluster-issuer: letsencrypt-production
+    nginx.ingress.kubernetes.io/auth-url: "http://oauth2-proxy.tools.svc.cluster.local/oauth2/auth"
+    nginx.ingress.kubernetes.io/auth-signin: "http://auth.adamsogm.us/oauth2/sign_in?rd=http://$host$request_uri"
 spec:
   tls:
     - hosts:
