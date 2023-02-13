@@ -11,7 +11,7 @@ spec:
   tls:
     - hosts:
         - tekton.adamsogm.us
-      secretName: tekton-cert
+      secretName: tekton-tls
   rules:
   - host: tekton.adamsogm.us
     http:
