@@ -16,7 +16,7 @@ spec:
   - host: tekton.adamsogm.us
     http:
       paths:
-        pathType: ImplementationSpecific
+      - pathType: ImplementationSpecific
         backend:
           service:
             name: tekton-dashboard
