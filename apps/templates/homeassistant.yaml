@@ -1,4 +1,4 @@
-{{- if .Values.apps.proxy.enabled -}}
+{{- if .Values.apps.homeassistant.enabled -}}
 kind: Service
 apiVersion: v1
 metadata:
@@ -9,7 +9,7 @@ spec:
     - name: app
       protocol: TCP
       port: 80
-      targetPort: 8080
+      targetPort: 8123
   clusterIP: None
   type: ClusterIP
   sessionAffinity: None
@@ -21,10 +21,10 @@ metadata:
   namespace: proxy
 subsets:
   - addresses:
-      - ip: 10.1.103.192
+      - ip: 10.8.0.2
     ports:
       - name: app
-        port: 8080
+        port: 8123
         protocol: TCP
 ---
 kind: Ingress
@@ -38,10 +38,10 @@ metadata:
 spec:
   tls:
     - hosts:
-        - proxy.adamsogm.us
+        - homeassistant.adamsogm.us
       secretName: proxy-tls
   rules:
-    - host: proxy.adamsogm.us
+    - host: homeassistant.adamsogm.us
       http:
         paths:
           - path: /
