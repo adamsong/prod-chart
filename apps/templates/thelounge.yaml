@@ -1,0 +1,51 @@
+{{- if .Values.apps.thelounge.enabled -}}
+kind: Service
+apiVersion: v1
+metadata:
+  name: external-ip
+  namespace: thelounge
+spec:
+  ports:
+    - name: app
+      protocol: TCP
+      port: 80
+      targetPort: 9000
+  clusterIP: None
+  type: ClusterIP
+  sessionAffinity: None
+---
+kind: Endpoints
+apiVersion: v1
+metadata:
+  name: external-ip
+  namespace: thelounge
+subsets:
+  - addresses:
+      - ip: 10.1.103.192
+    ports:
+      - name: app
+        port: 9000
+        protocol: TCP
+---
+kind: Ingress
+apiVersion: extensions/v1beta1
+metadata:
+  name: external-service
+  namespace: thelounge
+  annotations:
+    kubernetes.io/ingress.class: public
+    cert-manager.io/cluster-issuer: letsencrypt-production
+spec:
+  tls:
+    - hosts:
+        - thelounge.adamsogm.us
+      secretName: thelounge-tls
+  rules:
+    - host: thelounge.adamsogm.us
+      http:
+        paths:
+          - path: /
+            backend:
+              serviceName: external-ip
+              servicePort: 80 
+{{- end }}
