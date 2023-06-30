@@ -22,3 +22,6 @@ apps:
   
   homeassistant:
     enabled: true
+
+  thelounge:
+    enabled: true
